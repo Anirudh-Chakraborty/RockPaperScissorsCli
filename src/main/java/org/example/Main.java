@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Random;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -36,15 +37,35 @@ public class Main {
         System.out.println("Welcome to the RPS CLi Game");
         System.out.println("Make you choice and the computer will play against you");
         System.out.println("You will have to chose one of the following using numbers ");
+        System.out.println();
         System.out.println("1. Rock");
         System.out.println("2. Scissors");
         System.out.println("3. Paper");
+        System.out.println();
+        System.out.println("4. Quit");
 
         System.out.println("Make a Choice 1/2/3");
     }
 
     void game(int choice){
-        System.out.println("Welcome to the RPS CLi Game");
+
+        Random rand = new Random();
+        int computerChoice = rand.nextInt(3)+1;
+        System.out.println("The Computer Chose:");
+        switch (computerChoice){
+            case 1:
+                System.out.println("Rock");
+                break;
+            case 2:
+                System.out.println("Scissors");
+                break;
+            case 3:
+                System.out.println("Paper");
+                break;
+        }
+
+
+
     }
 
 
