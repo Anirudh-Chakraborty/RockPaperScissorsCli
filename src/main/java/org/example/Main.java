@@ -11,11 +11,13 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        caller.menu();
+        System.out.println("Welcome to the RPS CLi Game");
+        System.out.println("Make you choice and the computer will play against you");
 
         boolean gameLife = true;
         //the users choice
         while (gameLife) {
+            caller.menu();
             if (sc.hasNextInt()) {
                 int choice = sc.nextInt();
                 if (choice == 1 || choice == 2 || choice == 3) {
@@ -34,9 +36,8 @@ public class Main {
     }
 
     void menu(){
-        System.out.println("Welcome to the RPS CLi Game");
-        System.out.println("Make you choice and the computer will play against you");
-        System.out.println("You will have to chose one of the following using numbers ");
+        System.out.println();
+        System.out.println("Make a Choice 1/2/3 to play");
         System.out.println();
         System.out.println("1. Rock");
         System.out.println("2. Scissors");
@@ -44,31 +45,69 @@ public class Main {
         System.out.println();
         System.out.println("4. Quit");
 
-        System.out.println("Make a Choice 1/2/3");
     }
 
     void game(int choice){
 
+        // computer making choices
         Random rand = new Random();
         int computerChoice = rand.nextInt(3)+1;
-        System.out.println("The Computer Chose:");
-        switch (computerChoice){
+
+        System.out.println();
+        switch (choice){
+
             case 1:
-                System.out.println("Rock");
+                System.out.println("You Chose Rock");
                 break;
+
             case 2:
-                System.out.println("Scissors");
+                System.out.println("You Chose Scissors");
                 break;
+
             case 3:
-                System.out.println("Paper");
+                System.out.println("You Chose Paper");
                 break;
+
         }
+        switch (computerChoice){
 
+            case 1:
+                System.out.println("Computer Chose Rock");
+                break;
 
+            case 2:
+                System.out.println("Computer Chose Scissors");
+                break;
+
+            case 3:
+                System.out.println("Computer Chose Paper");
+                break;
+
+        }
+        caller.play(choice, computerChoice);
 
     }
 
+    void play(int choice, int computerChoice) {
+            //1 --> Rock
+            //2 --> Scissors
+            //3 --> Paper
 
-
-
+            // 1 beat 2
+            // 2 beat 3
+            // 3 beat one
+        if (   (computerChoice == 1 && choice == 2) // rock and scissors
+            || (computerChoice == 2 && choice == 3) // scissors and paper
+            || (computerChoice == 3 && choice == 1) // paper and rock
+            )
+        {
+            System.out.println("***----Computer wins----***");
+        } else if (choice==computerChoice)
+        {
+            System.out.println("Its a Draw");
+        }
+        else {
+            System.out.println("----***Congo You won***----");
+        }
+        }
 }
