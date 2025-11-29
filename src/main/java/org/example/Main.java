@@ -9,7 +9,11 @@ public class Main {
 
     static Main caller = new Main();
     static Scanner sc = new Scanner(System.in);
+    //computerScorecard
+    int computerScore = 0;
 
+    //Player ScoreCard
+    int playerScore = 0;
     public static void main(String[] args) {
         System.out.println("Welcome to the RPS CLi Game");
         System.out.println("Make you choice and the computer will play against you");
@@ -94,7 +98,6 @@ public class Main {
         //3 --> Paper
 
         //CompScore Card
-        int computerScore = 0;
 
 
         // 1 beat 2
@@ -105,18 +108,27 @@ public class Main {
                 || (computerChoice == 3 && choice == 1) // paper and rock
         ) {
             System.out.println("***----Computer wins----***");
-            caller.compScroe(computerScore);
+            computerScore++;
+            if (playerScore > 0) {
+                playerScore--;
+                System.out.println("You lost a point");
+            }
+
         } else if (choice == computerChoice) {
             System.out.println("Its a Draw");
-        } else {
-            System.out.println("----***Congo You won***----");
         }
-    }
+        else {
+            System.out.println("----***Congo You won***----");
+            playerScore++;
+            if (computerScore > 0) {
+                computerScore--;
+                System.out.println("Comp lost a point");
+            }
+        }
 
-    int compScroe(int computerScore) {
-
-        System.out.println();
-    return 5;
+        System.out.println("----*The Stats od the ScoreBoard are*----");
+        System.out.println("Computer Score: " + computerScore);
+        System.out.println("Paper Score: " + playerScore);
     }
 
 }
