@@ -35,7 +35,7 @@ public class Main {
         }
     }
 
-    void menu(){
+    void menu() {
         System.out.println();
         System.out.println("Make a Choice 1/2/3 to play");
         System.out.println();
@@ -47,14 +47,14 @@ public class Main {
 
     }
 
-    void game(int choice){
+    void game(int choice) {
 
         // computer making choices
         Random rand = new Random();
-        int computerChoice = rand.nextInt(3)+1;
+        int computerChoice = rand.nextInt(3) + 1;
 
         System.out.println();
-        switch (choice){
+        switch (choice) {
 
             case 1:
                 System.out.println("You Chose Rock");
@@ -69,7 +69,7 @@ public class Main {
                 break;
 
         }
-        switch (computerChoice){
+        switch (computerChoice) {
 
             case 1:
                 System.out.println("Computer Chose Rock");
@@ -89,25 +89,34 @@ public class Main {
     }
 
     void play(int choice, int computerChoice) {
-            //1 --> Rock
-            //2 --> Scissors
-            //3 --> Paper
+        //1 --> Rock
+        //2 --> Scissors
+        //3 --> Paper
 
-            // 1 beat 2
-            // 2 beat 3
-            // 3 beat one
-        if (   (computerChoice == 1 && choice == 2) // rock and scissors
-            || (computerChoice == 2 && choice == 3) // scissors and paper
-            || (computerChoice == 3 && choice == 1) // paper and rock
-            )
-        {
+        //CompScore Card
+        int computerScore = 0;
+
+
+        // 1 beat 2
+        // 2 beat 3
+        // 3 beat one
+        if ((computerChoice == 1 && choice == 2) // rock and scissors
+                || (computerChoice == 2 && choice == 3) // scissors and paper
+                || (computerChoice == 3 && choice == 1) // paper and rock
+        ) {
             System.out.println("***----Computer wins----***");
-        } else if (choice==computerChoice)
-        {
+            caller.compScroe(computerScore);
+        } else if (choice == computerChoice) {
             System.out.println("Its a Draw");
-        }
-        else {
+        } else {
             System.out.println("----***Congo You won***----");
         }
-        }
+    }
+
+    int compScroe(int computerScore) {
+
+        System.out.println();
+    return 5;
+    }
+
 }
